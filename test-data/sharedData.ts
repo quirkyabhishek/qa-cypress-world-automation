@@ -53,7 +53,7 @@ export const testTransactions = {
 
 export const endpoints = {
     ui: {
-        baseUrl: 'http://localhost:3000',
+        baseUrl: 'https://ui-demo.loca.lt',
         loginPage: '/signin',
         signupPage: '/signup',
         homePage: '/',
@@ -61,7 +61,7 @@ export const endpoints = {
         userSettingsPage: '/user/settings'
     },
     api: {
-        baseUrl: 'http://localhost:3001',
+        baseUrl: 'https://api-demo.loca.lt',
         auth: '/login',
         transactions: '/transactions',
         transfer: '/bankTransfers',
