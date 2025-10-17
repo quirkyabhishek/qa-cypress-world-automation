@@ -53,7 +53,7 @@ export const testTransactions = {
 
 export const endpoints = {
     ui: {
-        baseUrl: 'https://ui-demo.loca.lt',
+        baseUrl: 'https://brinkless-soothingly-kathey.ngrok-free.dev',
         loginPage: '/signin',
         signupPage: '/signup',
         homePage: '/',
