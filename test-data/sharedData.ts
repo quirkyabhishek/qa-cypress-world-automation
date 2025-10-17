@@ -53,7 +53,7 @@ export const testTransactions = {
 
 export const endpoints = {
     ui: {
-        baseUrl: 'https://brinkless-soothingly-kathey.ngrok-free.dev',
+        baseUrl: 'http://localhost:3000',
         loginPage: '/signin',
         signupPage: '/signup',
         homePage: '/',
@@ -61,7 +61,7 @@ export const endpoints = {
         userSettingsPage: '/user/settings'
     },
     api: {
-        baseUrl: 'https://api-demo.loca.lt',
+        baseUrl: 'http://localhost:3001',
         auth: '/login',
         transactions: '/transactions',
         transfer: '/bankTransfers',
