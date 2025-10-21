@@ -6,12 +6,17 @@ obj/
 TestResults/
 node_modules/
 
-# Playwright
+# Test Reports and Results
 /test-results/
 /playwright-report/
 /allure-results/
-.env
-/playwright-report/
+/allure-report/
 /blob-report/
+
+# Playwright specific
 /playwright/.cache/
 /playwright/.auth/
+.env
+
+# Compressed files
+*.json.gz
