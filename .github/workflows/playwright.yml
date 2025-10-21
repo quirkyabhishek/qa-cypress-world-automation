@@ -72,7 +72,7 @@ jobs:
         path: ./allure-results
         retention-days: 7
 
-        # Deploy Allure Report to GitHub Pages
+    # Deploy Allure Report to GitHub Pages - Updated configuration
     - name: Deploy to GitHub Pages
       if: always()
       uses: peaceiris/actions-gh-pages@v3
