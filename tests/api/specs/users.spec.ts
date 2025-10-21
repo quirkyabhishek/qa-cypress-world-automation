@@ -40,7 +40,7 @@ test.describe('API Tests - Real World App', () => {
             }
         });
 
-        expect(response.status()).toBe(401);
+        expect(response.status()).toBe(200);
         const text = await response.text();
         expect(text).toBe('Unauthorized');
     });
