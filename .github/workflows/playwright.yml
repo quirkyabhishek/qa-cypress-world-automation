@@ -11,21 +11,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
+    - name: Checkout repo with submodules
       uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 20
+        cache: 'yarn'
+        cache-dependency-path: |
+          package.json
+          webApp/cypress-realworld-app/package.json
 
+    # Install and setup Real World App dependencies
+    - name: Setup Real World App
+      run: |
+        cd webApp/cypress-realworld-app
+        # Remove package-lock.json if it exists to avoid mixed package manager issues
+        rm -f package-lock.json
+        # Install dependencies
+        yarn install
+        cd ../../
+
+    # Start the Real World App
     - name: Start Real World App
       run: |
         cd webApp/cypress-realworld-app
-        yarn install
-        yarn dev &  # This starts both backend and frontend
+        yarn dev &
+        
+        # Wait for both frontend and backend to be ready
         echo "Waiting for app to start..."
-        sleep 20  # Give time for both services to be ready
+        timeout 30 bash -c 'until curl -s http://localhost:3000 > /dev/null && curl -s http://localhost:3001 > /dev/null; do sleep 2; done' || (echo "App failed to start" && exit 1)
+        echo "App is ready!"
         cd ../../
 
     - name: Install dependencies
