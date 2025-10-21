@@ -87,9 +87,9 @@ npx playwright test --headed
   npx allure open ./allure-report
   ```
 
-- **CI/CD Reports**: For tests run through GitHub Actions, reports are automatically published to GitHub Pages:
-  - Latest test run: `https://quirkyabhishek.github.io/qa-automation-project/reports/<run-number>/`
-  - Report index: `https://quirkyabhishek.github.io/qa-automation-project/`
+- **CI/CD Reports**: For tests run through GitHub Actions, the latest test report is automatically published to GitHub Pages:
+  - View the latest report at: `https://quirkyabhishek.github.io/qa-cypress-world-automation/`
+  - Previous runs can be accessed as artifacts in GitHub Actions for up to 7 days
 
 ### Playwright Reports
 Playwright automatically generates HTML reports after test runs in:
