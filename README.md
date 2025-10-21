@@ -112,6 +112,7 @@ qa-automation-project/
 └── playwright.config.ts        # Playwright configuration
 ```
 
+
 ## GitHub Actions
 
 The project uses GitHub Actions for CI/CD. On each push and pull request:
