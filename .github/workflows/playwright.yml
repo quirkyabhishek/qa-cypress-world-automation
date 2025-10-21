@@ -72,10 +72,12 @@ jobs:
         path: ./allure-results
         retention-days: 7
 
-    - name: Deploy Allure Report to GitHub Pages
+        # Deploy Allure Report to GitHub Pages
+    - name: Deploy to GitHub Pages
       if: always()
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./allure-report
-        publish_branch: gh-pages  # This branch will host the report
+        destination_dir: .  # Deploy to root of gh-pages
+        keep_files: false  # Replace the entire gh-pages branch content
