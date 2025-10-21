@@ -81,16 +81,20 @@ npx playwright test --headed
 ## Test Reports
 
 ### Allure Reports
-After running tests, generate and view the Allure report:
-```bash
-yarn allure:generate
-yarn allure:open
-```
+- **Local Reports**: After running tests locally, generate and view the Allure report:
+  ```bash
+  npx allure generate ./allure-results --clean -o ./allure-report
+  npx allure open ./allure-report
+  ```
+
+- **CI/CD Reports**: For tests run through GitHub Actions, reports are automatically published to GitHub Pages:
+  - Latest test run: `https://quirkyabhishek.github.io/qa-automation-project/reports/<run-number>/`
+  - Report index: `https://quirkyabhishek.github.io/qa-automation-project/`
 
 ### Playwright Reports
-Playwright automatically generates HTML reports after test runs. Find them in:
-- `playwright-report/` directory
-- `test-results/` directory for test artifacts
+Playwright automatically generates HTML reports after test runs in:
+- `playwright-report/` - Test execution report
+- `test-results/` - Test artifacts (screenshots, videos, traces)
 
 ## Project Structure
 
