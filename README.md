@@ -6,7 +6,7 @@ This repository contains automated tests for the [Cypress Real World App](https:
 
 - Node.js (refer to `.node-version` file for the exact version)
 - Git
-- Yarn Classic (v1.x)
+- npm (latest version)
 
 ## Getting Started
 
@@ -19,13 +19,18 @@ git submodule update --init --recursive
 
 2. Install dependencies for the test project:
 ```bash
-yarn install
+npm ci
 ```
 
-3. Set up the Real World App:
+3. Install Playwright browsers:
+```bash
+npx playwright install --with-deps
+```
+
+4. Set up the Real World App:
 ```bash
 cd webApp/cypress-realworld-app
-yarn install
+npm install
 cd ../..
 ```
 
@@ -33,24 +38,44 @@ cd ../..
 
 ### Start the Application
 
-First, start the Real World App in one terminal:
+Start the Real World App:
+
 ```bash
 cd webApp/cypress-realworld-app
 yarn dev
 ```
 
+This single command starts both the backend and frontend services.
+
+The app will be available at:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:3001
+
+> **Note**: The default user credentials are:
+> - Username: `Katharina_Bernier`
+> - Password: `s3cret`
+
 ### Run Tests
 
-In another terminal, run the tests:
+In a new terminal, you can run tests using the following commands:
+
 ```bash
 # Run all tests
-yarn playwright test
+npx playwright test
 
-# Run tests with UI mode
-yarn playwright test --ui
+# Run tests in UI mode
+npx playwright test --ui
+
+# Run tests in specific browser
+npx playwright test --project=chromium
+npx playwright test --project=firefox
+npx playwright test --project=webkit
 
 # Run specific test file
-yarn playwright test tests/api/specs/users.spec.ts
+npx playwright test tests/api/specs/users.spec.ts
+
+# Run tests with headed browsers
+npx playwright test --headed
 ```
 
 ## Test Reports

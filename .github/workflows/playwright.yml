@@ -23,10 +23,9 @@ jobs:
       run: |
         cd webApp/cypress-realworld-app
         yarn install
-        yarn dev:database &
-        yarn start &
+        yarn dev &  # This starts both backend and frontend
         echo "Waiting for app to start..."
-        sleep 20
+        sleep 20  # Give time for both services to be ready
         cd ../../
 
     - name: Install dependencies
